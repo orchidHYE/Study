@@ -32,4 +32,19 @@ let index = arr3.indexOf(20);
 let arr4 = [1, 2, 3];
 const findedIndex = arr4.findIndex((item) => item === 999);
 
-console.log(findedIndex);
+// 4-1. indexOf와 findIndex 차이
+// indexOf는 특정 값을 배열에서 찾을 때, 얕은복사로만 찾기 때문에 객체값은 찾지 못한다.
+// 반면 findIndex는 콜백함수를 이용해, 특정 프로퍼티 값을 비교할 수 있기 때문에 객체값도 찾을 수 있다.
+let ObjectArr = [{ name: "orchidHYE" }, { name: "shin" }];
+
+// console.log(ObjectArr.indexOf({ name: "shin" }));
+
+// console.log(ObjectArr.findIndex((item) => item.name === "orchidHYE"));
+
+// 5. find
+// 모든 요소를 순회하면서 콜백함수를 만족하는 요소를 찾는데, 요소를 그대로 반환
+let arr5 = [{ name: "orchidHYE" }, { name: "shin" }];
+
+const finded = arr5.find((item) => item.name === "orchidHYE");
+
+console.log(finded);
