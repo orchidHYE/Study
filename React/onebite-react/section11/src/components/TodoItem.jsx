@@ -1,7 +1,10 @@
 import "./TodoItem.css";
-import {memo} from "react";
+import { memo, useContext } from "react";
+import { TodoDispatchContext } from "../App.jsx";
 
-const TodoItem = ({ id, isDone, content, date, onUpdate, onDelete }) => {
+const TodoItem = ({ id, isDone, content, date }) => {
+  const { onUpdate, onDelete } = useContext(TodoDispatchContext);
+
   const onChangeCheckbox = () => {
     onUpdate(id);
   };
@@ -25,7 +28,7 @@ const TodoItem = ({ id, isDone, content, date, onUpdate, onDelete }) => {
 //   // 반환값에 따라, Props가 바뀌었는지 안바뀌었는지 판단
 //   // T -> Props 바뀌지 않음 -> 리렌더링 X
 //   // F -> Props 바뀜 -> 리렌더링 O
-  
+
 //   if (prevProps.id !== nextProps.id) return false;
 //   if (prevProps.isDone !== nextProps.isDone) return false;
 //   if (prevProps.content !== nextProps.content) return false;
